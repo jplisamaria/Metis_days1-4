@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Guessing Game</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<h1>Guessing Game</h1>
+		<p>Guess a number between 1 and 10.</p>
+		<p>You have made <span id="numGuesses">0</span> guesses</p>
+		<form onsubmit ="return check();">
+			<input id="guess" type="text" placeholder="Enter your number here">
+			<input type="submit" value="Guess">
+		</form>
+
+		<script type="text/javascript">
+			var answer = Math.floor(Math.random() *10) +1;
+			var numGuesses = 0;
+
+			function check() {
+				var guess = document.getElementById("guess").value;
+				if(guess == answer){
+					alert("You are right!");
+				}
+				else{
+					numGuesses = numGuesses +1;
+					document.getElementById("numGuesses").innerHTML = numGuesses;
+					alert("Incorrect!");
+					// this resets the stuff in the box to empty
+					document.getElementById("guess").value = "" 
+				}
+				return false;
+			}
+		</script>
+	</body>
+</html>
